@@ -127,7 +127,7 @@ param.requires_grad = True
 
 ### Confusion Matrix 
 
-![image](img/vgg16/rcm.png)
+![image](img/vgg16/cm.png)
 
 ### AUC
 
@@ -149,7 +149,6 @@ param.requires_grad = True
 
 
 Challenge 1: Long training time for VGG
-
 Solution Applied: Used pretrained weights and fine-tuned last layers.
 
 Challenge 2: GPU Memory Limit
