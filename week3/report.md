@@ -6,12 +6,12 @@
 
 ---
 
-## 1. Introduction  
+## Introduction  
 This report summarizes the results of training multiple image cassification models on the CIFAR-10 dataset. The models range from simple fully-connected neural networks to deep convolutional architectures like ResNet-150. The primary objective was to compare their performance, understand their capacity to generalize, and draw insights from the training process.
 
 ---
 
-## 2. Dataset  
+## Dataset  
 
 **Dataset Used:** CIFAR-10 (60,000 32×32 RGB images in 10 classes)  
 - **Training Set:** 50,000  
@@ -34,23 +34,9 @@ This report summarizes the results of training multiple image cassification mode
 
 
 
-
----
-## 3. Models Implemented  
-| Model Type | Name       | Architecture Details                          |
-| ---------- | ---------- | --------------------------------------------- |
-| ANN        | 3-Layer FC | Input →  Output(10) *edit this******          |
-| Basic CNN  | CNN-3      | Conv → Pool → Conv → Pool → FCs               |
-| Classical  | LeNet      | LeNet-5 Architecture                          |
-| Classical  | AlexNet    | torchvision.models.alexnet(pretrained=True)   |
-| Classical  | VGG16      | torchvision.models.vgg16(pretrained=True)     |
-| Classical  | VGG19      | torchvision.models.vgg19(pretrained=True)     |
-| Classical  | ResNet-50  | torchvision.models.resnet50(pretrained=True)  |
-| Classical  | ResNet-150 | torchvision.models.resnet152(pretrained=True) |
-
 ---
 
-## 4. Evaluation Metrics  
+## Evaluation Metrics  
 
 Each model was evaluated on the test set using:  
 - **Accuracy**  
@@ -60,7 +46,7 @@ Each model was evaluated on the test set using:
 
 ---
 
-## 5. Results Summary  
+## Results Summary  
 
 | Model      | Trained Params | Accuracy (%) | F1-Score | Training Time | Generalization Gap |
 | ---------- | -------------- | ------------ | -------- | ------------- | ------------------ |
@@ -73,7 +59,6 @@ Each model was evaluated on the test set using:
 | ResNet-50  | ~25M           |              |          |               | Low                |
 | ResNet-150 | ~60M           |              |          |               | Low                |
 
-*Note: Replace the numbers with your actual results.*
 
 ---
 
@@ -91,11 +76,11 @@ The model was designed for digits recognition and is not expected to provide ver
 
 ### Confusion Matrix 
  
-![[Pasted image 20250609181036.png]]
+![image](/week3/img/lenet/lenet_cm.png)
 
 ### AUC Curves
 
-
+![image](/week3/img/lenet/roc.png)
 
 ## **VGG16**
 
@@ -109,9 +94,11 @@ I used the model with pretrained convolutuion parameters, and trained new parame
 
 ### Confusion Matrix 
 
-![[Pasted image 20250609181045.png]]
+![image](img/vgg16/cm.png)
 
 ### AUC Curves
+
+![image](img/vgg16/roc.png)
 
 ## **VGG19**
 
@@ -121,21 +108,30 @@ I used the model with pretrained convolutuion parameters, and trained new parame
 
 For this model, i also tried the approach of using the pretrained weights of the classifier too and it resulted in an accuracy of 83%
 
-`vgg19 = models.vgg19(pretrained=True)
-`for param in vgg19.features.parameters():
-`param.requires_grad = False
-`for param in vgg19.classifier.parameters():
-`param.r`equires_grad = False`
-`vgg19.classifier[6] = nn.Linear(4096, 10)
-`for param in vgg19.classifier[6].parameters():
-`param.requires_grad = True`
+```
+vgg19 = models.vgg19(pretrained=True)
+
+for param in vgg19.features.parameters():
+param.requires_grad = False
+
+for param in vgg19.classifier.parameters():
+param.requires_grad = False
+
+vgg19.classifier[6] = nn.Linear(4096, 10)
+
+for param in vgg19.classifier[6].parameters():
+param.requires_grad = True
+```
+
 ### Accuracy Achieved: 91.1%
 
 ### Confusion Matrix 
 
-![[Pasted image 20250609181154.png]]
+![image](img/vgg16/rcm.png)
 
-AUC
+### AUC
+
+![image](img/vgg16/roc.png)
 
 ---
 
