@@ -178,10 +178,9 @@ In this project, we worked on a classification task using two types of models: a
 4. Compared their results and performance.
 
 # Model Comparison
-Model	Parameters	Training Time	Accuracy	F1-Score	Generalization Gap
-Model A (Simple CNN)	~150K	~5 mins	91%	0.89	Small
-Model B (Deeper CNN)	~500K	~15 mins	94%	0.92	Medium
-Model C (With Dropout + Augmentation)	~520K	~20 mins	95%	0.94	Small
+Model	Parameters	  Training   Time	  Accuracy	F1-Score	Generalization Gap
+Model A (Simple ANN)	~150K	 ~5 mins	  38%	     0.36	          Small
+Model B (Simple CNN)	~500K	 ~15 mins   67%	     0.66           Medium
 
 # Overfitting, Underfitting, and Generalization
 Overfitting: The ANN showed some overfitting. It performed well on training but worse on testing.
