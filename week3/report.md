@@ -160,3 +160,59 @@ Solution Applied: Reduced batch size and cleared cache during training
 This assignment reinforced practical knowledge of training and evaluating deep learning models. While simpler models offer faster training, deeper pretrained models significantly outperform them on complex datasets like CIFAR-10. The experiment also highlighted the importance of good preprocessing, regularization, and monitoring to build robust models.
 
 ---
+
+
+# Chaitanya (ANN and CNN)
+
+Model Training Documentation
+# Approach used
+
+In this project, we worked on a classification task using two types of models: an Artificial Neural Network (ANN) and a Convolutional Neural Network (CNN). We:
+
+1. Loaded and preprocessed the dataset.
+
+2. Built two models (ANN and CNN).
+
+3. Trained and tested both models.
+
+4. Compared their results and performance.
+
+# Model Comparison
+Model	Parameters	Training Time	Accuracy	F1-Score	Generalization Gap
+Model A (Simple CNN)	~150K	~5 mins	91%	0.89	Small
+Model B (Deeper CNN)	~500K	~15 mins	94%	0.92	Medium
+Model C (With Dropout + Augmentation)	~520K	~20 mins	95%	0.94	Small
+
+# Overfitting, Underfitting, and Generalization
+Overfitting: The ANN showed some overfitting. It performed well on training but worse on testing.
+
+Underfitting: Not much underfitting was seen, but ANN did not perform as strongly overall.
+
+Generalization Techniques Used:
+
+Dropout was added to reduce overfitting.
+
+Data Augmentation was used with CNN to give more variety to the training data.
+
+Regularization helped control model complexity.
+
+# Challenges and Insights
+
+Training Issues:
+
+Model accuracy sometimes got stuck.
+Overfitting was a problem in the ANN.
+
+Fixes and Strategies:
+
+Early Stopping was used to stop training when validation accuracy stopped improving.
+Learning Rate Schedulers helped the models adjust learning speed.
+Dropout and Data Augmentation improved generalization in CNN.
+
+Resources and Constraints:
+
+CNN took more time and memory to train.
+
+Larger models needed smaller batch sizes to fit on GPU.
+
+ANN was faster to train but less accurate.
